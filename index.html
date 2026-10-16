@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b12">
+<meta name="description" content="Games Grátis — descubra jogos grátis para jogar no celular e no navegador.">
+<title>Games Grátis | Seu próximo jogo começa aqui</title>
+<style>
+:root{--bg:#090b12;--panel:#121622;--panel2:#171d2c;--text:#f4f7ff;--muted:#9aa5bd;--green:#8bff68;--cyan:#55e7ff;--border:#293247}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top right,#17243a 0,transparent 45%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:5;background:#090b12eF;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{max-width:1100px;margin:auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:1.12rem;font-weight:900;letter-spacing:-.5px}.logo span{color:var(--green)}
+.pill{border:1px solid #395044;background:#14221a;color:var(--green);border-radius:999px;padding:7px 11px;font-size:.78rem;font-weight:700}
+main{max-width:1100px;margin:auto;padding:24px 18px 48px}
+.hero{padding:34px 22px 28px;border:1px solid var(--border);border-radius:25px;background:linear-gradient(135deg,#172033,#10131e 65%,#13251e);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#8bff6814;right:-45px;top:-45px;filter:blur(4px)}
+.kicker{color:var(--green);font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:2px}
+h1{font-size:clamp(2.1rem,8vw,4.1rem);line-height:1.02;letter-spacing:-2px;margin:12px 0}
+h1 em{font-style:normal;color:var(--green)}
+.hero p{color:var(--muted);max-width:570px;line-height:1.6;margin:0 0 20px}
+.search{display:flex;gap:9px;max-width:560px}
+.search input{min-width:0;flex:1;background:#090d16;border:1px solid #34405a;color:var(--text);padding:14px 15px;border-radius:12px;font:inherit;outline:none}
+.search input:focus{border-color:var(--green)}
+.search button,.play{background:var(--green);color:#10170d;border:0;border-radius:12px;padding:12px 16px;font-weight:900;font:inherit;cursor:pointer}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:28px 0 14px}
+h2{margin:0;font-size:1.35rem;letter-spacing:-.5px}.section-head p{color:var(--muted);font-size:.85rem;margin:4px 0 0}
+.filters{display:flex;gap:8px;overflow:auto;padding:2px 0 14px}
+.filter{white-space:nowrap;background:var(--panel);border:1px solid var(--border);color:var(--muted);padding:9px 13px;border-radius:999px;font:inherit;font-size:.85rem;cursor:pointer}
+.filter.active{background:#17271c;border-color:#4d8e46;color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .18s,border-color .18s}
+.card:hover{transform:translateY(-3px);border-color:#53647f}
+.art{height:125px;display:grid;place-items:center;font-size:3.6rem;position:relative;overflow:hidden}
+.art:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,#ffffff18,transparent 60%)}
+.art span{filter:drop-shadow(0 8px 10px #0008);z-index:1}
+.art.green{background:linear-gradient(135deg,#153d32,#1c7255)}.art.blue{background:linear-gradient(135deg,#142c55,#245e9c)}.art.purple{background:linear-gradient(135deg,#35204f,#7946a5)}.art.orange{background:linear-gradient(135deg,#4d2817,#b75c2c)}.art.red{background:linear-gradient(135deg,#4a1c2a,#a53750)}.art.teal{background:linear-gradient(135deg,#123a43,#167e83)}
+.card-body{padding:13px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{margin:0;font-size:1rem}.card p{margin:0;color:var(--muted);font-size:.83rem;line-height:1.45;flex:1}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:.7rem;color:#c0cadc;background:var(--panel2);padding:4px 7px;border-radius:6px}
+.play{display:block;text-align:center;margin-top:4px;padding:10px;font-size:.87rem}
+.note{margin-top:22px;background:#111722;border:1px solid var(--border);padding:14px;border-radius:14px;color:var(--muted);font-size:.84rem;line-height:1.55}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px}
+footer{border-top:1px solid var(--border);padding:25px 18px;color:var(--muted);font-size:.8rem;text-align:center}
+footer strong{color:var(--green)}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.art{height:112px}main{padding:18px 13px 35px}.hero{padding:27px 17px}.nav{padding:12px 14px}}
+@media(max-width:390px){.grid{grid-template-columns:1fr}.art{height:145px}.search button{padding:11px}.logo{font-size:1rem}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="#"><span>🎮 GAMES</span> GRÁTIS</a><span class="pill">100% GAMER</span></div></header>
+<main>
+<section class="hero">
+<div class="kicker">Seu próximo jogo começa aqui</div>
+<h1>Jogue mais.<br><em>Gaste zero.</em></h1>
+<p>Descubra jogos grátis para explorar, competir e se divertir. Escolha um game e confira a página oficial para começar.</p>
+<div class="search"><input id="search" type="search" placeholder="Buscar jogo..." aria-label="Buscar jogo"><button id="searchBtn">Buscar</button></div>
+</section>
+<div class="section-head"><div><h2>🔥 Jogos em destaque</h2><p>Uma seleção para começar sua próxima aventura.</p></div></div>
+<div class="filters" aria-label="Filtrar jogos">
+<button class="filter active" data-filter="Todos">Todos</button>
+<button class="filter" data-filter="Ação">Ação</button>
+<button class="filter" data-filter="Aventura">Aventura</button>
+<button class="filter" data-filter="Construção">Construção</button>
+<button class="filter" data-filter="Corrida">Corrida</button>
+</div>
+<section class="grid" id="games">
+<article class="card" data-name="roblox" data-category="Aventura Construção">
+<div class="art green"><span>🧱</span></div><div class="card-body"><h3>Roblox</h3><p>Explore milhares de experiências criadas pela comunidade.</p><div class="tags"><span class="tag">Aventura</span><span class="tag">Construção</span></div><a class="play" href="https://www.roblox.com/" target="_blank" rel="noopener noreferrer">Ver jogo ↗</a></div>
+</article>
+<article class="card" data-name="fortnite" data-category="Ação">
+<div class="art purple"><span>🛡️</span></div><div class="card-body"><h3>Fortnite</h3><p>Entre em partidas cheias de ação e modos variados.</p><div class="tags"><span class="tag">Ação</span><span class="tag">Online</span></div><a class="play" href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer">Ver jogo ↗</a></div>
+</article>
+<article class="card" data-name="brawlhalla" data-category="Ação">
+<div class="art orange"><span>⚔️</span></div><div class="card-body"><h3>Brawlhalla</h3><p>Lute em arenas com personagens e estilos diferentes.</p><div class="tags"><span class="tag">Ação</span><span class="tag">Luta</span></div><a class="play" href="https://www.brawlhalla.com/" target="_blank" rel="noopener noreferrer">Ver jogo ↗</a></div>
+</article>
+<article class="card" data-name="stumble guys" data-category="Ação">
+<div class="art blue"><span>🏃</span></div><div class="card-body"><h3>Stumble Guys</h3><p>Desvie de obstáculos e tente chegar até o final.</p><div class="tags"><span class="tag">Corrida</span><span class="tag">Multiplayer</span></div><a class="play" href="https://www.stumbleguys.com/" target="_blank" rel="noopener noreferrer">Ver jogo ↗</a></div>
+</article>
+<article class="card" data-name="asphalt legends unite" data-category="Corrida">
+<div class="art red"><span>🏎️</span></div><div class="card-body"><h3>Asphalt Legends</h3><p>Corra com carros incríveis em pistas cheias de adrenalina.</p><div class="tags"><span class="tag">Corrida</span><span class="tag">Carros</span></div><a class="play" href="https://asphaltlegends.com/" target="_blank" rel="noopener noreferrer">Ver jogo ↗</a></div>
+</article>
+<article class="card" data-name="miniclip 8 ball pool" data-category="Ação">
+<div class="art teal"><span>🎱</span></div><div class="card-body"><h3>8 Ball Pool</h3><p>Jogue sinuca online e desafie outros jogadores.</p><div class="tags"><span class="tag">Esporte</span><span class="tag">Casual</span></div><a class="play" href="https://www.miniclip.com/" target="_blank" rel="noopener noreferrer">Ver jogo ↗</a></div>
+</article>
+</section>
+<div class="empty" id="empty">Não achei esse jogo. Tente outro nome, mano! 🎮</div>
+<div class="note"><strong>💡 Dica:</strong> este site é um catálogo independente. Os jogos podem exigir instalação, conta ou conexão com a internet. Confira os requisitos e a classificação etária nas páginas oficiais. Não hospedamos arquivos de jogos.</div>
+</main>
+<footer><strong>GAMES GRÁTIS</strong> · Feito para quem curte jogar.<br>Os nomes e marcas dos jogos pertencem aos seus respectivos donos.</footer>
+<script>
+const search = document.getElementById('search');
+const cards = [...document.querySelectorAll('.card')];
+const filters = [...document.querySelectorAll('.filter')];
+const empty = document.getElementById('empty');
+let category = 'Todos';
+function update(){
+ const term = search.value.trim().toLocaleLowerCase('pt-BR');
+ let shown = 0;
+ cards.forEach(card=>{
+  const matchesName = (card.dataset.name+' '+card.innerText).toLocaleLowerCase('pt-BR').includes(term);
+  const matchesCategory = category === 'Todos' || card.dataset.category.includes(category) || card.innerText.includes(category);
+  const visible = matchesName && matchesCategory;
+  card.style.display = visible ? 'flex' : 'none';
+  if(visible) shown++;
+ });
+ empty.style.display = shown ? 'none' : 'block';
+}
+search.addEventListener('input',update);
+document.getElementById('searchBtn').addEventListener('click',update);
+filters.forEach(btn=>btn.addEventListener('click',()=>{
+ category=btn.dataset.filter;
+ filters.forEach(b=>b.classList.toggle('active',b===btn));
+ update();
+}));
+</script>
+</body>
+</html>
